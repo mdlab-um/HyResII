@@ -5,7 +5,7 @@ HyRes II is a hybrid resolution coarse-grained protein model that contains atomi
 
 HyRes II requires a slightly modified CHARMM to support the Debye-Huckel electrostatic interactions. The patch can be provided upon request by contacting Jianhan Chen (jianahnc@umass.edu). This depository contains a tutorial with HyRes II topology and parameter files and a sample charmm script for running a standard MD simulation using HyRes II.  
 
-For additional information on HyRes II model, please refer to the following articles.
+Kye references for HyRes and HyRes II models:
 
 Liu and Chen (2017). "HyRes: a coarse-grained model for multi-scale enhanced sampling of disordered protein conformations." Physical Chemistry Chemical Physics 19(48): 32421-32432. (http://pubs.rsc.org/en/content/articlehtml/2017/CP/C7CP06736D)
 
