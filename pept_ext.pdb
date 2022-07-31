@@ -1,0 +1,22 @@
+REMARK  AN EXTENDED STRUCTURE OF PEPT                                                 
+REMARK   DATE:     7/31/22     13:17:27      CREATED BY USER: jianhanc                
+ATOM      1  CL  AMN     1      -5.383   0.854   0.096  1.00  0.00      PEPT
+ATOM      2  C   AMN     1      -4.218  -0.099   0.315  1.00  0.00      PEPT
+ATOM      3  O   AMN     1      -4.378  -1.160   0.922  1.00  0.00      PEPT
+ATOM      4  N   SER     2      -3.032   0.263  -0.198  1.00  0.00      PEPT
+ATOM      5  H   SER     2      -2.967   1.113  -0.682  1.00  0.00      PEPT
+ATOM      6  CA  SER     2      -1.819  -0.546  -0.076  1.00  0.00      PEPT
+ATOM      7  CB  SER     2      -1.773  -2.208  -1.257  1.00  0.00      PEPT
+ATOM      8  C   SER     2      -0.569   0.308  -0.303  1.00  0.00      PEPT
+ATOM      9  O   SER     2      -0.619   1.346  -0.970  1.00  0.00      PEPT
+ATOM     10  N   SER     3       0.573  -0.089   0.283  1.00  0.00      PEPT
+ATOM     11  H   SER     3       0.546  -0.881   0.860  1.00  0.00      PEPT
+ATOM     12  CA  SER     3       1.851   0.598   0.106  1.00  0.00      PEPT
+ATOM     13  CB  SER     3       2.055   2.223   1.320  1.00  0.00      PEPT
+ATOM     14  C   SER     3       3.028  -0.376   0.237  1.00  0.00      PEPT
+ATOM     15  O   SER     3       2.881  -1.458   0.819  1.00  0.00      PEPT
+ATOM     16  N   CBX     4       4.181   0.012  -0.346  1.00  0.00      PEPT
+ATOM     17  H   CBX     4       4.174   0.852  -0.850  1.00  0.00      PEPT
+ATOM     18  CA  CBX     4       5.470  -0.752  -0.276  1.00  0.00      PEPT
+TER      19      CBX      4
+END

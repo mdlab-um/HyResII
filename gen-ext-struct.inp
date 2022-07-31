@@ -1,0 +1,52 @@
+* generate an extended structure using HyRes representation
+*
+
+if @?segid eq 0 set segid = pept
+
+set toppar = ./
+
+!HyRes2 top/par
+read  rtf card name @toppar/top-idpcg-sasa.inp
+read para card name @toppar/param-idpcg-sasa.inp
+
+! AMN and CBX are capping groups
+! read in a sequence
+read sequ card
+* di_ser
+*
+4
+AMN SER SER CBX 
+
+bomlev -1
+gene @segid setup warn
+
+ic param
+ic seed 2 N 2 CA 2 C
+ic build
+hbuild
+bomlev 0
+
+NBOND atom switch cdie vdw vswitch -
+      cutnb 20.0 ctofnb 16.0 ctonnb 16.0 -
+      eps 20 ionc 0.15
+nbond inbfrq -1
+hbond ihbfrq -1
+
+energy
+
+cons harm force 2.0 select .not. hydrogen end
+mini   sd  nstep 100 nprint 20 step 0.005
+mini abnr  nstep 100 nprint 20 step 0.005
+cons harm clear
+
+coor orient
+
+writ coor pdb name @segid_ext.pdb
+* an extended structure of @segid 
+*
+
+writ psf card name @segid.psf
+* psf of @segid cg system
+*
+
+stop

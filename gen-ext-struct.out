@@ -1,0 +1,527 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+                   (CHARMM) - Developmental Version 35b2   February 15, 2008   
+       Copyright(c) 1984-2001  President and Fellows of Harvard College
+                              All Rights Reserved
+      Current operating system: Linux-3.10.0-693.11.6.el7.x86_64(x86_64)@pik
+                 Created on  7/31/22 at 13:17:27 by user: jianhanc    
+
+            Maximum number of ATOMS:     60120, and RESidues:       20040
+            Current HEAP size:        10240000, and STACK size:  10000000
+
+ RDTITL> * GENERATE AN EXTENDED STRUCTURE USING HYRES REPRESENTATION
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>    if @?segid eq 0 set segid = pept
+ Comparing "0" and "0".
+ IF test evaluated as true.  Performing command
+ Parameter: SEGID <- "PEPT"
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar = ./
+ Parameter: TOPPAR <- "./"
+  
+ CHARMM>     
+  
+ CHARMM>    !HyRes2 top/par
+ CHARMM>    read  rtf card name @toppar/top-idpcg-sasa.inp
+ Parameter: TOPPAR -> "./"
+ VOPEN> Attempting to open::.//top-idpcg-sasa.inp::
+ MAINIO> Residue topology file being read from unit  90.
+ TITLE> * TOPOLOGY FILE FOR COARSE GRAINED PROTEINS
+ TITLE> * ARG, LYS, ASP, GLU ARE CHARGED
+ TITLE> *
+ VCLOSE: Closing unit   90 with status "KEEP"
+  
+ CHARMM>    read para card name @toppar/param-idpcg-sasa.inp
+ Parameter: TOPPAR -> "./"
+ VOPEN> Attempting to open::.//param-idpcg-sasa.inp::
+
+          PARAMETER FILE BEING READ FROM UNIT 90
+ TITLE> * PARAMETER FILE FOR COARSE GRAINED PROTEINS
+ TITLE> * ARG, LYS, ASP, GLU IS NEUTRAL
+ TITLE> *
+ PARRDR> ERROR: Repeated torsion periodicity: INDEX   50 CODE******** PERIODICITY  1     NH1 -C1E -A1Y -A2Y 
+ PARRDR> ERROR: Repeated torsion periodicity: INDEX   42 CODE******** PERIODICITY  1     NH1 -C1E -A1F -A2F 
+ PARRDR> ERROR: Repeated torsion periodicity: INDEX   34 CODE******** PERIODICITY  1     NH1 -C1E -A4H -P1H 
+*****  WARNING  ***** PARRDR no nonbond parameters for atom type:  10  CT  
+ NO nonbond interactions will be computed for this atom type.
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+ VCLOSE: Closing unit   90 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    ! AMN and CBX are capping groups
+ CHARMM>    ! read in a sequence
+ CHARMM>    read sequ card
+ MAINIO> Sequence information being read from unit   5.
+ RDTITL> * DI_SER
+ RDTITL> *
+  
+ SEQRDR>    4
+  
+ SEQRDR>    AMN SER SER CBX
+
+          RESIDUE SEQUENCE --     4 RESIDUES
+          AMN SER SER CBX 
+  
+ CHARMM>     
+  
+ CHARMM>    bomlev -1
+  
+ CHARMM>    gene @segid setup warn
+ Parameter: SEGID -> "PEPT"
+ NO PATCHING WILL BE DONE ON THE FIRST RESIDUE
+ NO PATCHING WILL BE DONE ON THE LAST  RESIDUE
+ GENPSF> Segment   1 has been generated. Its identifier is PEPT.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        4
+         Number of atoms         =       18   Number of groups     =        9
+         Number of bonds         =       17   Number of angles     =       24
+         Number of dihedrals     =       28   Number of impropers  =        8
+         Number of cross-terms   =        2
+         Number of HB acceptors  =        3   Number of HB donors  =        3
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    ic param
+  
+ CHARMM>    ic seed 2 N 2 CA 2 C
+  
+ CHARMM>    ic build
+  
+ CHARMM>    hbuild
+
+      ***** LEVEL  4 WARNING FROM <GTHBUI> *****
+      ***** Zero selection specified
+      ******************************************
+      BOMLEV ( -1) IS NOT REACHED. WRNLEV IS  5
+
+  
+ CHARMM>    bomlev 0
+  
+ CHARMM>     
+  
+ CHARMM>    NBOND atom switch cdie vdw vswitch -
+ CHARMM>          cutnb 20.0 ctofnb 16.0 ctonnb 16.0 -
+ CHARMM>          eps 20 ionc 0.15
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 20.000 CTEXNB =999.000 CTONNB = 16.000 CTOFNB = 16.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  0.400 EPS    = 20.000
+ NBXMOD =      5 IONC   = 0.1500
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ GTNBCT> CUTNB,CTOFNB,CTONNB=      20.0      16.0      16.0
+
+      ***** LEVEL  1 WARNING FROM <GTNBCT> *****
+      ***** CUTNB,CTOFNB,CTONNB are not in correct order.
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+ <MAKINB> with mode   5 found     41 exclusions and     28 interactions(1-4)
+ <MAKGRP> found     19 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      145 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      112 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>    nbond inbfrq -1
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 20.000 CTEXNB =999.000 CTONNB = 16.000 CTOFNB = 16.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  0.400 EPS    = 20.000
+ NBXMOD =      5 IONC   = 0.1500
+ There are      112 atom  pairs and       69 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ GTNBCT> CUTNB,CTOFNB,CTONNB=      20.0      16.0      16.0
+
+      ***** LEVEL  1 WARNING FROM <GTNBCT> *****
+      ***** CUTNB,CTOFNB,CTONNB are not in correct order.
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      145 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      112 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CHARMM>    hbond ihbfrq -1
+ PRNHBD: CUToff Hydrogen Bond  distance =    6.0000   Angle =  100.0000
+         CuT switching ON HB dist. =     4.0000  OFf HB dist. =    5.0000
+         CuT switching ON Hb Angle =    90.0000  OFf Hb Angle =   90.0000
+         NO ACceptor antecedents included
+         All hydrogen bonds for each hydrogen will be found
+         Hydrogen bonds between excluded atoms will be kept
+
+ HBFIND-exclusions:      2 due to distance cutoff,       3 due to angle cutoff
+ HBEDIT-deletions:       0 due to duplications,          0 due to best-option,
+                         0 due to fixed atoms,           0 due to exclusions
+ HBEDIT: currently     4 hydrogen bonds present
+  
+ CHARMM>     
+  
+ CHARMM>    energy
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 20.000 CTEXNB =999.000 CTONNB = 16.000 CTOFNB = 16.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  0.400 EPS    = 20.000
+ NBXMOD =      5 IONC   = 0.1500
+ There are      112 atom  pairs and       69 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ GTNBCT> CUTNB,CTOFNB,CTONNB=      20.0      16.0      16.0
+
+      ***** LEVEL  1 WARNING FROM <GTNBCT> *****
+      ***** CUTNB,CTOFNB,CTONNB are not in correct order.
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      145 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      112 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ PRNHBD: CUToff Hydrogen Bond  distance =    6.0000   Angle =  100.0000
+         CuT switching ON HB dist. =     4.0000  OFf HB dist. =    5.0000
+         CuT switching ON Hb Angle =    90.0000  OFf Hb Angle =   90.0000
+         NO ACceptor antecedents included
+         All hydrogen bonds for each hydrogen will be found
+         Hydrogen bonds between excluded atoms will be kept
+
+ HBFIND-exclusions:      2 due to distance cutoff,       3 due to angle cutoff
+ HBEDIT-deletions:       0 due to duplications,          0 due to best-option,
+                         0 due to fixed atoms,           0 due to exclusions
+ HBEDIT: currently     4 hydrogen bonds present
+ENER ENR:  Eval#     ENERgy      Delta-E         GRMS
+ENER INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ENER EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+ENER>        0     35.03493      0.00000     13.28094
+ENER INTERN>        0.00000      0.40506      0.00000      0.00000      0.61936
+ENER EXTERN>       34.01383      0.00000     -0.00332      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>     
+  
+ CHARMM>    cons harm force 2.0 select .not. hydrogen end
+ SELRPN>     15 atoms have been selected out of     18
+ CSTRAN: Harmonic Restraints
+          ABSOlute type as set number  1.  Number of selected atoms:     15
+          Reference coordinates set to main coordinates.
+          Mass weighting will NOT be used for new restraints.
+          The force constant of       2.00000 will be used.
+          An exponent of  2 will be used.
+          The XYZ scale factors are:       1.00000       1.00000       1.00000
+          A total of     15 atoms are restrained.
+  
+ CHARMM>    mini   sd  nstep 100 nprint 20 step 0.005
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 20.000 CTEXNB =999.000 CTONNB = 16.000 CTOFNB = 16.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  0.400 EPS    = 20.000
+ NBXMOD =      5 IONC   = 0.1500
+ There are      112 atom  pairs and       69 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ GTNBCT> CUTNB,CTOFNB,CTONNB=      20.0      16.0      16.0
+
+      ***** LEVEL  1 WARNING FROM <GTNBCT> *****
+      ***** CUTNB,CTOFNB,CTONNB are not in correct order.
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      145 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      112 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ PRNHBD: CUToff Hydrogen Bond  distance =    6.0000   Angle =  100.0000
+         CuT switching ON HB dist. =     4.0000  OFf HB dist. =    5.0000
+         CuT switching ON Hb Angle =    90.0000  OFf Hb Angle =   90.0000
+         NO ACceptor antecedents included
+         All hydrogen bonds for each hydrogen will be found
+         Hydrogen bonds between excluded atoms will be kept
+
+ HBFIND-exclusions:      2 due to distance cutoff,       3 due to angle cutoff
+ HBEDIT-deletions:       0 due to duplications,          0 due to best-option,
+                         0 due to fixed atoms,           0 due to exclusions
+ HBEDIT: currently     4 hydrogen bonds present
+
+
+ STEEPD> An energy minimization has been requested.
+
+ NSTEP  =          100   NPRINT =           20
+ STEP   =    0.0050000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0     35.03493      0.00000     13.28094      0.00500
+MINI INTERN>        0.00000      0.40506      0.00000      0.00000      0.61936
+MINI EXTERN>       34.01383      0.00000     -0.00332      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20     17.61673     17.41821      2.86444      0.00241
+MINI INTERN>        1.09096      1.82755      0.00000      0.23333      0.35377
+MINI CROSS>        -0.00010
+MINI EXTERN>       13.72013      0.00000     -0.00553      0.00000      0.00000
+MINI CONSTR>        0.39663      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40     16.61422      1.00250      1.74075      0.00116
+MINI INTERN>        1.19602      2.29983      0.00000      0.20506      0.41744
+MINI CROSS>        -0.00008
+MINI EXTERN>       11.93380      0.00000     -0.00624      0.00000      0.00000
+MINI CONSTR>        0.56840      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60     16.08237      0.53186      2.25472      0.00134
+MINI INTERN>        1.25197      2.33714      0.00000      0.19851      0.38222
+MINI CROSS>        -0.00004
+MINI EXTERN>       11.22450      0.00000     -0.00612      0.00000      0.00000
+MINI CONSTR>        0.69419      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80     15.68536      0.39701      2.47915      0.00155
+MINI INTERN>        1.25896      2.29374      0.00000      0.20044      0.33988
+MINI CROSS>        -0.00001
+MINI EXTERN>       10.79192      0.00000     -0.00599      0.00000      0.00000
+MINI CONSTR>        0.80642      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100     15.30037      0.38498      0.60393      0.00075
+MINI INTERN>        1.11457      2.22747      0.00000      0.21248      0.31326
+MINI CROSS>         0.00002
+MINI EXTERN>       10.52170      0.00000     -0.00638      0.00000      0.00000
+MINI CONSTR>        0.91725      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ STEEPD> Minimization exiting with number of steps limit (       100) exceeded.
+
+STPD MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+STPD INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+STPD CROSS:           CMAPs     
+STPD EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+STPD CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+ ----------       ---------    ---------    ---------    ---------    ---------
+STPD>      100     15.30037      0.38498      0.60393      0.00089
+STPD INTERN>        1.11457      2.22747      0.00000      0.21248      0.31326
+STPD CROSS>         0.00002
+STPD EXTERN>       10.52170      0.00000     -0.00638      0.00000      0.00000
+STPD CONSTR>        0.91725      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    mini abnr  nstep 100 nprint 20 step 0.005
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  SWITch   VATOm    VSWItch 
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 20.000 CTEXNB =999.000 CTONNB = 16.000 CTOFNB = 16.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  0.400 EPS    = 20.000
+ NBXMOD =      5 IONC   = 0.1500
+ There are      112 atom  pairs and       69 atom  exclusions.
+ There are        0 group pairs and       19 group exclusions.
+ GTNBCT> CUTNB,CTOFNB,CTONNB=      20.0      16.0      16.0
+
+      ***** LEVEL  1 WARNING FROM <GTNBCT> *****
+      ***** CUTNB,CTOFNB,CTONNB are not in correct order.
+      ******************************************
+      BOMLEV (  0) IS NOT REACHED. WRNLEV IS  5
+
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR      145 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+      112 ATOM PAIRS WERE FOUND FOR ATOM LIST
+        0 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+ PRNHBD: CUToff Hydrogen Bond  distance =    6.0000   Angle =  100.0000
+         CuT switching ON HB dist. =     4.0000  OFf HB dist. =    5.0000
+         CuT switching ON Hb Angle =    90.0000  OFf Hb Angle =   90.0000
+         NO ACceptor antecedents included
+         All hydrogen bonds for each hydrogen will be found
+         Hydrogen bonds between excluded atoms will be kept
+
+ HBFIND-exclusions:      2 due to distance cutoff,       3 due to angle cutoff
+ HBEDIT-deletions:       0 due to duplications,          0 due to best-option,
+                         0 due to fixed atoms,           0 due to exclusions
+ HBEDIT: currently     4 hydrogen bonds present
+
+
+ ABNER> An energy minimization has been requested.
+
+ EIGRNG =    0.0005000   MINDIM =            5
+ NPRINT =           20   NSTEP  =          100
+ PSTRCT =    0.0000000   SDSTP  =    0.0050000
+ STPLIM =    1.0000000   STRICT =    0.1000000
+ TOLFUN =    0.0000000   TOLGRD =    0.0000000
+ TOLITR =          100   TOLSTP =    0.0000000
+ FMEM   =    0.0000000
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs     
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+MINI CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0     15.30037      0.38498      0.60393      0.00000
+MINI INTERN>        1.11457      2.22747      0.00000      0.21248      0.31326
+MINI CROSS>         0.00002
+MINI EXTERN>       10.52170      0.00000     -0.00638      0.00000      0.00000
+MINI CONSTR>        0.91725      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20     13.65515      1.64522      0.56519      0.00278
+MINI INTERN>        0.74522      1.68472      0.00000      0.46636      0.17110
+MINI CROSS>        -0.00006
+MINI EXTERN>        7.83449      0.00000     -0.00410      0.00000      0.00000
+MINI CONSTR>        2.75742      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40     13.60575      0.04940      0.27283      0.00156
+MINI INTERN>        0.80129      1.73053      0.00000      0.50490      0.14843
+MINI CROSS>        -0.00008
+MINI EXTERN>        7.79388      0.00000     -0.00426      0.00000      0.00000
+MINI CONSTR>        2.63107      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60     13.58304      0.02271      0.13507      0.00053
+MINI INTERN>        0.76041      1.68196      0.00000      0.51564      0.15745
+MINI CROSS>        -0.00007
+MINI EXTERN>        7.71400      0.00000     -0.00401      0.00000      0.00000
+MINI CONSTR>        2.75766      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80     13.56849      0.01455      0.05524      0.00030
+MINI INTERN>        0.74298      1.66464      0.00000      0.54898      0.15268
+MINI CROSS>        -0.00007
+MINI EXTERN>        7.61001      0.00000     -0.00380      0.00000      0.00000
+MINI CONSTR>        2.85306      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100     13.56784      0.00066      0.03184      0.00017
+MINI INTERN>        0.74248      1.65954      0.00000      0.54542      0.15583
+MINI CROSS>        -0.00007
+MINI EXTERN>        7.62031      0.00000     -0.00380      0.00000      0.00000
+MINI CONSTR>        2.84813      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ ABNER> Minimization exiting with number of steps limit (  100) exceeded.
+
+ABNR MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+ABNR INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+ABNR CROSS:           CMAPs     
+ABNR EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ABNR CONSTR:       HARMonic    CDIHedral          CIC     RESDistance       NOE
+ ----------       ---------    ---------    ---------    ---------    ---------
+ABNR>      100     13.56784      0.00066      0.03184      0.00015
+ABNR INTERN>        0.74248      1.65954      0.00000      0.54542      0.15583
+ABNR CROSS>        -0.00007
+ABNR EXTERN>        7.62031      0.00000     -0.00380      0.00000      0.00000
+ABNR CONSTR>        2.84813      0.00000      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    cons harm clear
+  
+ CHARMM>     
+  
+ CHARMM>    coor orient
+
+ ORIENT THE COORDINATES TO ALIGN WITH AXIS
+
+ MOMENTS
+      9.95121068      6.50379157      2.58419094
+                     71.12578225     76.08556151
+                                    128.99116808
+
+ Transpose of the rotation matrix
+     0.822304    0.568039    0.033892
+    -0.541976    0.763640    0.350880
+     0.173432   -0.306899    0.935807
+ CENTER OF ATOMS BEFORE TRANSLATION     2.69168     1.40910    -0.01115
+ AXIS OF ROTATION IS  0.506843  0.107521  0.855307  ANGLE IS   40.46
+
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>     
+  
+ CHARMM>    writ coor pdb name @segid_ext.pdb
+ Parameter: SEGID -> "PEPT"
+ VOPEN> Attempting to open::pept_ext.pdb::
+ RDTITL> * AN EXTENDED STRUCTURE OF PEPT
+ RDTITL> *
+  Write CHARMM-pdb format
+ VCLOSE: Closing unit   90 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    writ psf card name @segid.psf
+ Parameter: SEGID -> "PEPT"
+ VOPEN> Attempting to open::pept.psf::
+ RDTITL> * PSF OF PEPT CG SYSTEM
+ RDTITL> *
+ VCLOSE: Closing unit   90 with status "KEEP"
+  
+ CHARMM>     
+  
+ CHARMM>    stop
+ Parallel load balance (sec.):
+ Node Eext      Eint   Wait    Comm    List   Integ   Total
+   0     0.0     0.0     0.0     0.0     0.0     0.0     0.1
+
+      $$$$$$  New timer profile Local node$$$$$
+
+   List time                       0.00 Other:            0.00
+         Electrostatic & VDW             0.00 Other:            0.00
+      Nonbond force                   0.03 Other:            0.02
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.00 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.00 Other:            0.00
+      Comm force                      0.00 Other:            0.00
+   Energy time                     0.06 Other:            0.02
+ Total time                      0.18 Other:            0.12
+
+         $$$$$$  Average   profile $$$$$
+
+   List time                       0.00 Other:            0.00
+         Electrostatic & VDW             0.00 Other:            0.00
+      Nonbond force                   0.03 Other:            0.02
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.00 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.00 Other:            0.00
+      Comm force                      0.00 Other:            0.00
+   Energy time                     0.06 Other:            0.02
+ Total time                      0.18 Other:            0.12
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    MAXIMUM STACK SPACE USED IS   32020
+                    STACK CURRENTLY IN USE IS         0
+                    MOST SEVERE WARNING WAS AT LEVEL  1
+                    HEAP PRINTOUT-  HEAP SIZE         10240000
+                    SPACE CURRENTLY IN USE IS             4608
+                    MAXIMUM SPACE USED IS                 9908
+                    FREE LIST
+  PRINHP> ADDRESS:               1 LENGTH:        10234892 NEXT:        10239501
+  PRINHP> ADDRESS:        10239501 LENGTH:             500 NEXT:               0
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     0.22  SECONDS 
+                         CPU TIME:     0.06  SECONDS 

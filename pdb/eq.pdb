@@ -1,0 +1,22 @@
+REMARK  EQUIBRATED PDB                                                                
+REMARK   DATE:     7/31/22     13:17:37      CREATED BY USER: jianhanc                
+ATOM      1  CL  AMN     1       0.421   0.328  -4.719  1.00  0.00      PEPT
+ATOM      2  C   AMN     1       1.056   0.490  -3.233  1.00  0.00      PEPT
+ATOM      3  O   AMN     1       2.059  -0.193  -3.029  1.00  0.00      PEPT
+ATOM      4  N   SER     2       0.546   1.208  -2.259  1.00  0.00      PEPT
+ATOM      5  H   SER     2      -0.281   1.694  -2.460  1.00  0.00      PEPT
+ATOM      6  CA  SER     2       1.128   1.132  -0.952  1.00  0.00      PEPT
+ATOM      7  CB  SER     2       1.465   2.952  -0.117  1.00  0.00      PEPT
+ATOM      8  C   SER     2       0.446   0.219   0.038  1.00  0.00      PEPT
+ATOM      9  O   SER     2      -0.796   0.119  -0.098  1.00  0.00      PEPT
+ATOM     10  N   SER     3       1.180  -0.492   0.857  1.00  0.00      PEPT
+ATOM     11  H   SER     3       2.148  -0.638   0.813  1.00  0.00      PEPT
+ATOM     12  CA  SER     3       0.662  -1.232   1.975  1.00  0.00      PEPT
+ATOM     13  CB  SER     3       1.766  -2.655   2.945  1.00  0.00      PEPT
+ATOM     14  C   SER     3       0.229  -0.241   3.050  1.00  0.00      PEPT
+ATOM     15  O   SER     3      -0.899  -0.363   3.493  1.00  0.00      PEPT
+ATOM     16  N   CBX     4       1.132   0.686   3.399  1.00  0.00      PEPT
+ATOM     17  H   CBX     4       2.018   0.647   2.983  1.00  0.00      PEPT
+ATOM     18  CA  CBX     4       0.967   1.774   4.493  1.00  0.00      PEPT
+TER      19      CBX      4
+END
