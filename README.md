@@ -9,5 +9,5 @@ Kye references for HyRes and HyRes II models:
 
 Liu and Chen (2017). "HyRes: a coarse-grained model for multi-scale enhanced sampling of disordered protein conformations." Physical Chemistry Chemical Physics 19(48): 32421-32432. (http://pubs.rsc.org/en/content/articlehtml/2017/CP/C7CP06736D)
 
-Zhang, Liu and Chen, "Towards Accurate Coarse-Grained Simulations of Disordered Proteins and Their Dynamic Interactions" (under review)
+Zhang, Liu and Chen, "Towards Accurate Coarse-Grained Simulations of Disordered Proteins and Their Dynamic Interactions", J. Chem. Inf. Model 62 (18), 4523-4536 (2022) (https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c00974)
 
