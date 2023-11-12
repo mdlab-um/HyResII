@@ -1,7 +1,7 @@
 # HyResII
 HyRes II Coarse-Grained Protein Model
 
-(Update 2023: A GPU implementation in OpenMM is availabe: TBD)
+**Update 2023:** A GPU implementation is availabe and should be used: https://github.com/mdlab-um/HyRes_GPU
 
 HyRes II is a hybrid resolution coarse-grained protein model that contains atomistic protein backbone and intermediate resolution side chains. The model has been parameterized to provide semi-quantitative description of local helical propensities as well transient long-range interactions of intrinsically disordered proteins. The model can not be used for simulation of folded proteins, even though it will proper distinguish the overall compaction of folded vs. disordered proteins.
 
